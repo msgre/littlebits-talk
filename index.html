@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>littleBits</title>
+
+        <meta name="description" content="Stavebnice littleBits. LEGO pro generaci iPadistů.">
+        <meta name="author" content="Michal Valoušek, michal@plovarna.cz">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="plugin/highlight/styles/github.css">
+
+        <style>
+
+.reveal a:not(.image),
+.reveal h2,
+.reveal h3 {
+    color: #5F027E;
+}
+.reveal section a:after {
+    content: " \2192";
+}
+.reveal section.noarrow a:after {
+    content: "";
+}
+
+
+
+
+
+
+
+
+
+.reveal section table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+.reveal section table td {
+    padding:6px 18px;
+    margin:0;
+    border-bottom:1px dotted;
+}
+
+/* computing */
+.reveal section.computing * {
+    /*F58536*/
+    color: #271000;
+    border-color: #271000;
+}
+.reveal section.computing a {
+    color: #FFE5D2;
+}
+.reveal section.computing a:hover {
+    color: #FFF;
+}
+.reveal section.computing h2 {
+    color: #AA4803;
+}
+
+
+/* rds */
+.reveal section.rds * {
+    /*5293CF*/
+    color: #011D36;
+    border-color: #011D36;
+}
+.reveal section.rds a {
+    color: #AACFF0;
+}
+.reveal section.rds a:hover {
+    color: #FFF;
+}
+.reveal section.rds h2 {
+    color: #1262A9;
+}
+
+
+/* cf */
+.reveal section.cf * {
+    /*759C3D*/
+    color: #0F1A00;
+    border-color: #0F1A00;
+}
+.reveal section.cf a {
+    color: #CAE6A1;
+}
+.reveal section.cf a:hover {
+    color: #FFF;
+}
+.reveal section.cf h2 {
+    color: #365608;
+}
+
+/* cli */
+.reveal section.cli h2 {
+    color: #333;
+}
+
+
+
+.strikeout {
+    position: relative;
+}
+.strikeout::after {
+    border-bottom: 10px solid #000;
+    content: "";
+    left: 35%;
+    position: absolute;
+    right: 36%;
+    top: 60%;
+}
+
+            pre code {
+                font-size: 120%;
+            }
+            .no-highlight {
+                color:#777;
+                font-weight:bold;
+            }
+            .circle {
+                display:inline-block;
+                width:150px;
+                height:150px;
+                -webkit-border-radius:100px;
+                border-radius:100px;
+                background:black;
+                color:white;
+            }
+            .reveal pre {
+                box-shadow:none;
+                width:100%;
+            }
+            .reveal pre code {
+                padding-left:1em;
+                padding-right:1em;
+            }
+            .reveal .model pre code {
+                background-color: #CBEFF3;
+            }
+            .reveal .model a {
+                color: #CBEFF3;
+            }
+            .reveal .view pre code {
+                background-color: #FFE6B2;
+            }
+            .reveal .view a {
+                color: #FFE6B2;
+            }
+            .reveal .events pre code {
+                background-color: #A7F0B7;
+            }
+            .reveal .events a {
+                color: #A7F0B7;
+            }
+            .reveal .controller pre code {
+                background-color: #FFB6B2;
+            }
+            .reveal .controller a {
+                color: #FFB6B2;
+            }
+.reveal .controls div.navigate-left,
+.reveal .controls div.navigate-left.enabled {
+    border-right-color: #000;
+}
+.reveal .controls div.navigate-right,
+.reveal .controls div.navigate-right.enabled {
+    border-left-color: #000;
+}
+.reveal .controls div.navigate-up,
+.reveal .controls div.navigate-up.enabled {
+    border-bottom-color: #000;
+}
+.reveal .controls div.navigate-down,
+.reveal .controls div.navigate-down.enabled {
+    border-top-color: #000;
+}
+.reveal .progress span {
+    background: #000;
+}
+        </style>
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+                <section class="noarrow">
+                    <img src="img/littlebits-logo.png" style="padding-top:20px;border:none; box-shadow:none;" />
+                    <p>
+                        <br>
+                        <br>
+                        <small><a href="http://tkalci.cz/">Tkalci na webu</a><br><a href="mailto:michal@plovarna.cz">Michal Valoušek</a> &mdash; <a href="http://twitter.com/msgre">@msgre</a><br><br>
+                            <a href="https://github.com/msgre/littlebits-talk">https://github.com/msgre/littlebits-talk</a>
+                        </small>
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Magnetický konektor bitSnap</h3><br>
+                    <img src="img/ToTheRescue.gif" style="border:none; padding:20px; background: #fff; box-shadow:none;" />
+                    <aside class="notes">
+                        <p>MAGNETY</p>
+                    </aside>
+                </section>
+
+                <section>
+                    <h3>Moduly čtyř barev</h3><br>
+                    <img src="img/barvy.png" style="border:none; padding:20px; background: #fff; box-shadow:none;" />
+                </section>
+
+                <section>
+                    <h3>Kvanta kombinací</h3><br>
+                    <img src="img/schemata.png" style="border:none; padding:20px; background: #fff; box-shadow:none;" />
+                    <aside class="notes">
+                        <p>KOMBINACE</p>
+                        <p>
+                            * Base: 150,000 kombinací (10 modulu)
+                            * Premium: 600,000 kombinací (14 modulu)
+                            * Deluxe: pres milion kombinací (18 modulu)
+                            * prepinace na modulkach
+                        </p>
+                    </aside>
+                </section>
+
+                <section class="noarrow">
+                    <h2>Cíl</h2><br><br>
+                    <q>
+                        To put the power of electronics in the hands of everyone
+                    </q>
+                </section>
+
+                <section>
+                    <section data-background="img/decka.jpg">
+                    </section>
+
+                    <section data-background="img/bublifuk.jpg">
+                    </section>
+
+                    <section data-background="img/hriby.jpg">
+                    </section>
+
+                </section>
+
+
+                <section>
+                    <h3>Ayah Bdeir</h3><br>
+                    <img src="img/Ayah.jpg" style="border:none; padding:20px; background: #fff; box-shadow:none;" />
+                    <aside class="notes">
+                        <p>
+                            * rocnik 82, narozena v kanade, libanonske+kanadske obcanstvi
+                            * vystudovala MIT Media Lab, kompy, stala u zrodu open hardware
+                            * pred 10 lety napad -- zpristupnit techniku lidem kteri do ni nevidi
+                            * TED talk -- elektronika jako material
+                            * betonova cihla, LEGO, tranzistor -- zakladni stavebni jednotky
+                            * 2011 zaklada startup littleBits
+                        </p>
+                    </aside>
+                </section>
+
+                <section class="noarrow">
+                    <q>
+                        littleBits is born out of the Maker Movement and we
+                        have been helping lead the Open Hardware Movement.<br>[...]<br>
+                        Our designs are publicly available so that anyone can
+                        see, use and adapt them to their needs.
+                        <footer style="text-align:right">— <a href="http://littlebits.cc/mission">Mission, littleBits.cc</a></footer>
+                    </q>
+                </section>
+
+                <section class="noarrow">
+                    <h3>Modul Bargraph</h3>
+                    <table>
+                        <tr>
+                            <td style="border:none">
+                                <a href="http://littlebits.cc/bits/bargraph"><img src="img/bargraph.jpg" style="border:none; padding:20px; background: #fff; box-shadow:none;"/></a>
+                            </td>
+                            <td style="border:none">
+                                <a href="http://littlebits.cc/bits/bargraph"><img src="img/schema-bargraph.png" style="border:none; padding:20px; background: #fff; box-shadow:none;"/></a>
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section data-background="img/paleta2.jpg" class="noarrow">
+                    <h3><a href="http://littlebits.cc/shop">60+ modulů</a></h3>
+                    <br><br><br><br><br><br><br><br><br><br><br><br>
+                    <aside class="notes">
+                        <p>
+                            * modra
+                                - knoflik, 9V, USB
+                            * ruzova
+                                - spousta ze synth kitu (oscilator, filter, delay)
+                                - tlacitka, spinace, prepinace, klavesnice
+                                - senzory (zvuk, svetlo, tlak, pohyb)
+                            * oranz
+                                - prodlouzeni/rozdeleni
+                                - logicke cleny (AND, OR, XOR)
+                                - makey
+                                - prototypovaci moduly
+                                - arduino, bezdrat 2.4 GHz 3 kanaly, cloudbit
+                            * zelena
+                                - svetlo, zvuk, pohyb
+                        </p>
+                    </aside>
+                </section>
+
+                <section data-background="img/bitlab_bg.jpg" class="noarrow">
+                    <a href="http://littlebits.cc/bitlab"><img src="img/bitlab_logo.png"></a>
+                    <aside class="notes">
+                        <p>
+                            * marketplace
+                            * upload vlastnich navrhu
+                            * hlasovani o novinkach (1000, schvaleni, a sup do vyroby)
+                            * makey, bare conductive, arduino, korg
+                        </p>
+                    </aside>
+                </section>
+
+                <section>
+                    <section class="noarrow">
+                        <h3>Komunita</h3><br>
+                        <ul>
+                            <li><a href="http://littlebits.cc/projects">Projekty</a></li>
+                            <li><a href="http://littlebits.cc/education">Podpora pro učitele (lekce, blog, sleva)</a></li>
+                            <li><a href="http://littlebits.cc/blog">Blog</a></li>
+                            <li><a href="http://littlebits.cc/dreambits">dreamBits</a></li>
+                            <li>Sociální sítě</li>
+                        </ul>
+                    </section>
+
+                    <section class="noarrow" data-background="#000">
+                        <iframe class="stretch" width="560" height="315" src="//www.youtube.com/embed/yedk1cwqeQw" frameborder="0" allowfullscreen></iframe>
+                    </section>
+                </section>
+
+<!--
+                <section data-background="img/jinda.jpg">
+                </section>
+
+                <section data-background="img/bublifuk.jpg">
+                </section>
+
+                <section data-background="img/hriby.jpg">
+                </section>
+-->
+
+
+                <section>
+                    <h3>Díky za pozornost</h3>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+        <script src="jquery.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: 'simple',
+                transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+                        $(document).ready(function(){
+                            $('code').each(function(i, e) {hljs.highlightBlock(e)});
+                        });
+                        //hljs.initHighlightingOnLoad();
+                    } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
